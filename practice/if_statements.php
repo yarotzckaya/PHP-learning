@@ -28,3 +28,55 @@ function multiplyIfOdd($n)
 
 	return $n;
 }
+
+
+
+// Дано число. Если оно не меньше 50, то выведите квадрат этого числа, если же это число больше 10 и меньше 30, то выведите ноль, в остальных случаях выведите слово "Ошибка"
+
+function numberSwithcValues($n)
+{
+	switch ($n) {
+		case ($n >= 50):
+			return $n * $n;
+			break;
+		case ($n > 10 && $n < 30):
+			return 0;
+			break;
+		default:
+			return "Ошибка";
+	}
+}
+
+
+
+// Дано два числа. Вывести наибольшее из них
+
+function biggerNum($n1, $n2)
+{
+	switch ($n1 <=> $n2) {
+		case 0:
+			return "Числа равны";
+			break;
+		case -1:
+			return $n2;
+		case 1:
+			return $n1;
+	}
+}
+
+
+
+// Дано два числа. Вывести 'YES', если они отличаются на 100, иначе вывести 'NO'
+
+function difference($n1, $n2, $difference)
+{
+	// я модифицировала пример так, чтобы разница могла быть переменной
+	if(($n1 - $n2 == $difference) || ($n2 - $n1 == $difference)){
+		return "YES";
+	} else {
+		return "NO";
+	}
+	// более продвинутое решение: с использованием модуля числа:
+
+	//return (fabs($n1 - $n2) == $difference) ? "YES" : "NO";
+}
