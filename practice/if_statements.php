@@ -80,3 +80,66 @@ function difference($n1, $n2, $difference)
 
 	//return (fabs($n1 - $n2) == $difference) ? "YES" : "NO";
 }
+
+
+
+// Дано два числа. Вывести 'YES', если они отличаются не более чем на 20, иначе вывести 'NO'
+
+function differenceMoreThan($n1, $n2, $difference)
+{
+	if ((abs($n1 - $n2) <= $difference) || (abs($n2 - $n1) <= $difference)) {
+		return "YES";
+	} else {
+		return "NO";
+	}
+}
+
+
+
+// Дан номер месяца. Вывести название поры года (весна, лето и так далее) или слово 'Ошибка', если месяца с таким номером не существует
+
+function monthDetect($n)
+{
+	switch ($n) {
+		case ($n <= 0):
+			echo "Error";
+			break;
+		case ($n < 3 || $n == 12):
+			echo "Winter";
+			break;
+		case ($n < 6):
+			echo "Spring";
+			break;
+		case ($n < 9):
+			echo "Summer";
+			break;
+		case ($n < 12):
+			echo "Autumn";
+			break;
+		default :
+			echo "Error";
+	}
+}
+
+
+
+// В данном трехзначном числе переставьте цифры так, чтобы новое число оказалось наибольшим из возможных
+
+function theBiggestNumber($n)
+{
+
+	$numberString = "$n";
+	$numberArray = str_split($numberString);
+	rsort($numberArray);
+
+	return $numberArray[0] * 100 + $numberArray[1] * 10 + $numberArray[2];
+
+	// арифметический способ:
+	// $result = [];
+	// $result[0] = intdiv($n, 100);
+	// $result[1] = intdiv(($n % 100), 10);
+	// $result[2] = $n % 10;
+	// rsort($result);
+	// return $result[0] * 100 + $result[1] * 10 + $result[2];
+}
+
